@@ -31,6 +31,7 @@
        * @prop {Boolean} [direction] - Direction fab menu opens
        * @prop {Boolean} [hoverEnabled=true] - Enable hover vs click
        * @prop {Boolean} [toolbarEnabled=false] - Enable toolbar transition
+       * @prop {Boolean} [closeOnClick=true] - Enable toolbar close on button click
        */
       this.options = $.extend({}, FloatingActionButton.defaults, options);
 
@@ -111,7 +112,7 @@
      * Handle FAB Click
      */
     _handleFABClick() {
-      if (this.isOpen) {
+      if (this.isOpen && this.closeOnClick) {
         this.close();
       } else {
         this.open();
