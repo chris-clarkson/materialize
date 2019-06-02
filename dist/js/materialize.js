@@ -8362,6 +8362,7 @@ $jscomp.polyfill = function (e, r, p, m) {
        * @prop {Boolean} [direction] - Direction fab menu opens
        * @prop {Boolean} [hoverEnabled=true] - Enable hover vs click
        * @prop {Boolean} [toolbarEnabled=false] - Enable toolbar transition
+       * @prop {Boolean} [closeOnClick=true] - Enable toolbar close on button click
        */
       _this48.options = $.extend({}, FloatingActionButton.defaults, options);
 
@@ -8440,7 +8441,7 @@ $jscomp.polyfill = function (e, r, p, m) {
     }, {
       key: "_handleFABClick",
       value: function _handleFABClick() {
-        if (this.isOpen) {
+        if (this.isOpen && this.closeOnClick) {
           this.close();
         } else {
           this.open();
